@@ -1,11 +1,12 @@
+sudo: required
 language: node_js
 node_js:
   - "8"
 
 install:
 - npm install -g protractor
-- pip install robotframework
-- pip install --upgrade --pre robotframework-selenium2library
+- sudo pip install robotframework
+- sudo pip install --upgrade --pre robotframework-selenium2library
 
 script:
 - protractor protractor/conf.js
