@@ -4,6 +4,9 @@ node_js:
 
 install:
 - npm install -g protractor
+- pip install robotframework
+- pip install --upgrade --pre robotframework-selenium2library
 
 script:
 - protractor protractor/conf.js
+- robot robot-framework/test.robot
