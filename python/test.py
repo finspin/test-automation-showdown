@@ -20,12 +20,12 @@ class Login(unittest.TestCase):
             desired_capabilities=self.desired_caps
         )
 
-
     def test_should_successfully_log_in(self):
         driver = self.driver
         base_url = self.base_url
 
         driver.get(base_url + "/login")
+
         username = driver.find_element_by_id("username")
         password = driver.find_element_by_id("password")
         submit_button = driver.find_element_by_css_selector('button[type="submit"]')
