@@ -1,11 +1,25 @@
-import unittest
+import unittest, os
 from selenium import webdriver
+
 
 class Login(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
         self.base_url = "http://www.testmeplease.site"
+        self.desired_caps = {
+            "browserstack.user": os.environ["BROWSERSTACK_USER"],
+            "browserstack.key": os.environ["BROWSERSTACK_KEY"],
+            "os": "Windows",
+            "os_version": "10",
+            "browserName": "Chrome",
+            "browser_version": "62.0",
+            "resolution": "1024x768"
+        }
+        self.driver = webdriver.Remote(
+            command_executor="http://hub-cloud.browserstack.com/wd/hub",
+            desired_capabilities=self.desired_caps
+        )
+
 
     def test_should_successfully_log_in(self):
         driver = self.driver
@@ -23,7 +37,7 @@ class Login(unittest.TestCase):
         assert driver.current_url == base_url + "/profile"
 
     def tearDown(self):
-        self.driver.close()
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
