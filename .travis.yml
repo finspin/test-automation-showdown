@@ -26,3 +26,4 @@ script:
   - protractor protractor/conf.js
   - robot robot-framework/test.robot
   - python python/test.py
+  - ruby ruby/test.rb
