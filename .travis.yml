@@ -1,13 +1,27 @@
 sudo: required
+dist: trusty
 language: node_js
 node_js:
   - "8"
 
+env:
+  - CHROMEDRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`
+
 install:
-- npm install -g protractor
-- sudo pip install robotframework
-- sudo pip install --upgrade --pre robotframework-selenium2library
+  - sudo mkdir -p /opt/chromedriver-$CHROMEDRIVER_VERSION
+  - sudo curl -sS -o /tmp/chromedriver_linux64.zip http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+  - sudo apt-get -qqy update
+  - sudo apt-get -qq -y install unzip
+  - sudo unzip -qq /tmp/chromedriver_linux64.zip -d /opt/chromedriver-$CHROMEDRIVER_VERSION
+  - sudo rm /tmp/chromedriver_linux64.zip
+  - sudo chmod +x /opt/chromedriver-$CHROMEDRIVER_VERSION/chromedriver
+  - sudo ln -fs /opt/chromedriver-$CHROMEDRIVER_VERSION/chromedriver /usr/local/bin/chromedriver
+  - npm install -g protractor
+  - sudo pip install robotframework
+  - sudo pip install --upgrade --pre robotframework-selenium2library
+  - sudo pip install selenium
 
 script:
-- protractor protractor/conf.js
-- robot robot-framework/test.robot
+  - protractor protractor/conf.js
+  - robot robot-framework/test.robot
+  - python python/test.py
