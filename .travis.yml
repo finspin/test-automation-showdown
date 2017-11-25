@@ -7,7 +7,9 @@ install:
 - npm install -g protractor
 - sudo pip install robotframework
 - sudo pip install --upgrade --pre robotframework-selenium2library
+- sudo pip install selenium
 
 script:
 - protractor protractor/conf.js
 - robot robot-framework/test.robot
+- python python/test.py
