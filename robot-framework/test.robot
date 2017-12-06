@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation     Test suite showcasing Robot Framework capabilities.
 Library           Selenium2Library
+Suite Teardown    Close Browser
 
 *** Variables ***
 ${ALIAS}                            none
@@ -28,4 +29,11 @@ Should Successfully Log In
     Input Text              password                    pass
     Click Button            css=button[type="submit"]
     Location Should Be      ${BASE URL}/profile
-    [Teardown]              Close Browser
+
+Should Successfully Log Out
+    Open Browser            ${BASE URL}/login           ${BROWSER}    ${ALIAS}    ${REMOTE URL}    ${DESIRED CAPABILITIES}
+    Input Text              username                    user
+    Input Text              password                    pass
+    Click Button            css=button[type="submit"]
+    Click Link              css=a[href="/logout"]
+    Location Should Be      ${BASE URL}/login
