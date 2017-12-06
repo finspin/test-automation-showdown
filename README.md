@@ -15,7 +15,7 @@ Each test automation framework implements the same set of tests. The tests verif
 |Test Case|Protractor|Robot Framework|Python|Ruby|
 |---|---|---|---|---|
 |Login|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
-|Logout|:x:|:x:|:x:|:x:|
+|Logout|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
 |Ajax|:x:|:x:|:x:|:x:|
 |Alerts|:x:|:x:|:x:|:x:|
 |Drag & Drop|:x:|:x:|:x:|:x:|
