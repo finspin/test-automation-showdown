@@ -36,6 +36,22 @@ class Login < Test::Unit::TestCase
     assert(@driver.current_url == @base_url + "/profile")
   end
 
+  def test_should_successfully_log_out
+    @driver.get @base_url + "/login"
+
+    username = @driver.find_element(:css, "#username")
+    password = @driver.find_element(:css, "#password")
+    submit_button = @driver.find_element(:css, "button[type='submit']")
+
+    username.send_keys "user"
+    password.send_keys "pass"
+    submit_button.click
+
+    @driver.find_element(:css, "a[href='/logout']").click
+
+    assert(@driver.current_url == @base_url + "/login")
+  end
+
   def teardown
     @driver.quit
   end
