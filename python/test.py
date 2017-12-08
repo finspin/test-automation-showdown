@@ -22,38 +22,36 @@ class Login(unittest.TestCase):
         )
 
     def test_should_successfully_log_in(self):
-        driver = self.driver
         base_url = self.base_url
 
-        driver.get(base_url + "/login")
+        self.driver.get(base_url + "/login")
 
-        username = driver.find_element_by_id("username")
-        password = driver.find_element_by_id("password")
-        submit_button = driver.find_element_by_css_selector('button[type="submit"]')
+        username = self.driver.find_element_by_id("username")
+        password = self.driver.find_element_by_id("password")
+        submit_button = self.driver.find_element_by_css_selector('button[type="submit"]')
 
         username.send_keys("user")
         password.send_keys("pass")
         submit_button.click()
 
-        assert driver.current_url == base_url + "/profile"
+        assert self.driver.current_url == base_url + "/profile"
 
     def test_should_successfully_log_out(self):
-        driver = self.driver
         base_url = self.base_url
 
-        driver.get(base_url + "/login")
+        self.driver.get(base_url + "/login")
 
-        username = driver.find_element_by_id("username")
-        password = driver.find_element_by_id("password")
-        submit_button = driver.find_element_by_css_selector('button[type="submit"]')
+        username = self.driver.find_element_by_id("username")
+        password = self.driver.find_element_by_id("password")
+        submit_button = self.driver.find_element_by_css_selector('button[type="submit"]')
 
         username.send_keys("user")
         password.send_keys("pass")
         submit_button.click()
 
-        driver.find_element_by_css_selector('a[href="/logout"]').click()
+        self.driver.find_element_by_css_selector('a[href="/logout"]').click()
 
-        assert driver.current_url == base_url + "/login"
+        assert self.driver.current_url == base_url + "/login"
 
     def tearDown(self):
         self.driver.quit()
