@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation     Test suite showcasing Robot Framework capabilities.
 Library           Selenium2Library
-Test Teardown     Close Browser
+Suite Setup       Open Browser  ${BASE URL}     ${BROWSER}  ${ALIAS}    ${REMOTE URL}   ${DESIRED CAPABILITIES}
+Suite Teardown    Close Browser
 
 *** Variables ***
 ${ALIAS}                            none
@@ -12,10 +13,12 @@ ${BROWSERSTACK OS VERSION}          10
 ${BROWSERSTACK BROWSER}             ${BROWSER}
 ${BROWSERSTACK BROWSER VERSION}     62.0
 ${BROWSERSTACK RESOLUTION}          1024x768
+${TRAVIS_BUILD_NUMBER}              local build
+${TRAVIS_BUILD_NUMBER}              %{TRAVIS_BUILD_NUMBER}
 ${DESIRED CAPABILITIES}             SEPARATOR=,
 ...                                 browserstack.user:%{BROWSERSTACK_USER}
 ...                                 browserstack.key:%{BROWSERSTACK_KEY}
-...                                 build:%{TRAVIS_BUILD_NUMBER}
+...                                 build:${TRAVIS_BUILD_NUMBER}
 ...                                 os:${BROWSERSTACK OS}
 ...                                 os_version:${BROWSERSTACK OS VERSION}
 ...                                 browserName:${BROWSERSTACK BROWSER}
@@ -25,14 +28,14 @@ ${REMOTE URL}                       http://hub-cloud.browserstack.com/wd/hub
 
 *** Test Cases ***
 Should Successfully Log In
-    Open Browser            ${BASE URL}/login           ${BROWSER}    ${ALIAS}    ${REMOTE URL}    ${DESIRED CAPABILITIES}
+    Go To                   ${BASE URL}/login
     Input Text              username                    user
     Input Text              password                    pass
     Click Button            css=button[type="submit"]
     Location Should Be      ${BASE URL}/profile
 
 Should Successfully Log Out
-    Open Browser            ${BASE URL}/login           ${BROWSER}    ${ALIAS}    ${REMOTE URL}    ${DESIRED CAPABILITIES}
+    Go To                   ${BASE URL}/login
     Input Text              username                    user
     Input Text              password                    pass
     Click Button            css=button[type="submit"]
