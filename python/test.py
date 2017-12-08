@@ -9,6 +9,7 @@ class Login(unittest.TestCase):
         self.desired_caps = {
             "browserstack.user": os.environ["BROWSERSTACK_USER"],
             "browserstack.key": os.environ["BROWSERSTACK_KEY"],
+            "build": os.environ["TRAVIS_BUILD_NUMBER"],
             "os": "Windows",
             "os_version": "10",
             "browserName": "Chrome",
