@@ -13,12 +13,10 @@ ${BROWSERSTACK OS VERSION}          10
 ${BROWSERSTACK BROWSER}             ${BROWSER}
 ${BROWSERSTACK BROWSER VERSION}     62.0
 ${BROWSERSTACK RESOLUTION}          1024x768
-${TRAVIS_BUILD_NUMBER}              local build
-${TRAVIS_BUILD_NUMBER}              %{TRAVIS_BUILD_NUMBER}
 ${DESIRED CAPABILITIES}             SEPARATOR=,
 ...                                 browserstack.user:%{BROWSERSTACK_USER}
 ...                                 browserstack.key:%{BROWSERSTACK_KEY}
-...                                 build:${TRAVIS_BUILD_NUMBER}
+...                                 build:%{TRAVIS_BUILD_NUMBER}
 ...                                 os:${BROWSERSTACK OS}
 ...                                 os_version:${BROWSERSTACK OS VERSION}
 ...                                 browserName:${BROWSERSTACK BROWSER}
