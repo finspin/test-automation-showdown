@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation     Test suite showcasing Robot Framework capabilities.
 Library           Selenium2Library
-Suite Teardown    Close Browser
+Test Teardown     Close Browser
 
 *** Variables ***
 ${ALIAS}                            none
