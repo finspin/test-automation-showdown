@@ -9,6 +9,7 @@ class Login < Test::Unit::TestCase
     desired_capabilities = Selenium::WebDriver::Remote::Capabilities.new
     desired_capabilities["browserstack.user"] = ENV["BROWSERSTACK_USER"]
     desired_capabilities["browserstack.key"] = ENV["BROWSERSTACK_KEY"]
+    desired_capabilities["build"] = ENV["TRAVIS_BUILD_NUMBER"]
     desired_capabilities["os"] = "Windows"
     desired_capabilities["os_version"] = "10"
     desired_capabilities["browserName"] = "Chrome"

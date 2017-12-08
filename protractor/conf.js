@@ -5,6 +5,7 @@ exports.config = {
     capabilities: {
         'browserstack.user': process.env.BROWSERSTACK_USER,
         'browserstack.key': process.env.BROWSERSTACK_KEY,
+        'build': process.env.TRAVIS_BUILD_NUMBER,
         'os': 'Windows',
         'os_version': '10',
         'browserName': 'Chrome',
