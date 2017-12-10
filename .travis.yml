@@ -22,6 +22,7 @@ install:
   - sudo pip install selenium
   - gem install selenium-webdriver
   - gem install rspec
+  - npm install selenium-webdriver
   - npm install cucumber
 
 script:
