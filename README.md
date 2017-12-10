@@ -12,17 +12,17 @@ Each test automation framework implements the same set of tests. The tests verif
 
 ## What is currently implemented
 
-|Test Case|Protractor|Robot Framework|Python|Ruby|
-|---|---|---|---|---|
-|Login|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
-|Logout|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
-|Ajax|:x:|:x:|:x:|:x:|
-|Alerts|:x:|:x:|:x:|:x:|
-|Drag & Drop|:x:|:x:|:x:|:x:|
-|Forms|:x:|:x:|:x:|:x:|
-|Modals|:x:|:x:|:x:|:x:|
-|Search|:x:|:x:|:x:|:x:|
-|[add more]|||||
+|Test Case|Protractor|Robot Framework|Python|RSpec|Cucumber|
+|---|---|---|---|---|---|
+|Login|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
+|Logout|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
+|Ajax|:x:|:x:|:x:|:x:|:x:|
+|Alerts|:x:|:x:|:x:|:x:|:x:|
+|Drag & Drop|:x:|:x:|:x:|:x:|:x:|
+|Forms|:x:|:x:|:x:|:x:|:x:|
+|Modals|:x:|:x:|:x:|:x:|:x:|
+|Search|:x:|:x:|:x:|:x:|:x:|
+|[add more]||||||
 
 ## How are the tests executed
 

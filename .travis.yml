@@ -22,9 +22,12 @@ install:
   - sudo pip install selenium
   - gem install selenium-webdriver
   - gem install rspec
+  - npm install selenium-webdriver
+  - npm install cucumber
 
 script:
   - protractor protractor/conf.js
   - robot robot-framework/test.robot
   - python python/test.py
   - rspec rspec/test.rb
+  - ./node_modules/cucumber/bin/cucumber.js cucumber
